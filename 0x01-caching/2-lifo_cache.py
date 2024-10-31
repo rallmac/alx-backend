@@ -2,29 +2,28 @@
 """ LIFOCache module
 """
 from base_caching import BaseCaching
+from collections import OrderedDict
 
 
 class LIFOCache(BaseCaching):
     """ LIFOCache defines a LIFO caching system """
 
     def __init__(self):
-        """ Initialize the class with the parent class's init method """
+        """ Initialize the class with the parent class's
+            init method
+        """
         super().__init__()
-        self.last_key = None  # To track the last added key
+        self.cache_data = OrderedDict()  # To track the last added key
 
     def put(self, key, item):
         """ Add an item in the cache with LIFO eviction policy """
-        if key is not None and item is not None:
+        if key is None or item is None:
+            if len(self.cache_data) + 1 > BaseCaching.MAX_ITEMS:
+                last_item, _ = self.cache_data.popitem(Tru)
+                print("DISCARD:", last_item)
             self.cache_data[key] = item
-            if key in self.cache_data:
-                self.last_key = key
-
-            if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-                del self.cache_data[self.last_key]
-                print("DISCARD:", self.last_key)
-
-                self.last_key = key
+            self.cache_data.move_to_end(key, last=True)
 
     def get(self, key):
-        """ Get an item by key """
+        """ The get method """
         return self.cache_data.get(key, None)
