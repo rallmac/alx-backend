@@ -1,7 +1,13 @@
+#!/usr/bin/env python3
+"""This is a flask app that prints hello world
+   and the heading is welcome to holberton
+"""
+
 from flask import Flask, render_template
-from flask_babel import Babel  # Use Flask-Babel, not Flask-BabelEx
+from flask_babel import Babel
 
 app = Flask(__name__)
+
 
 class Config:
     """Configuration for Flask app and Babel."""
@@ -9,15 +15,18 @@ class Config:
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
+
 # Set up the app config
 app.config.from_object(Config)
 
 # Instantiate the Babel object
 babel = Babel(app)
 
+
 @app.route('/')
 def index():
     return render_template('1-index.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
