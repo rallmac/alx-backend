@@ -2,13 +2,12 @@
 # Copyright (C) 2024 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
-
+#
 msgid "home_title"
 msgstr "Bienvenue chez Holberton"
 
 msgid "home_header"
 msgstr "Bonjour monde!"
-
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-11-07 09:51+0100\n"
