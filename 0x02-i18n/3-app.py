@@ -3,7 +3,7 @@
    and the heading is welcome to holberton
 """
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_babel import Babel
 
 app = Flask(__name__)
@@ -32,7 +32,7 @@ def get_locale():
 @app.route('/')
 def index():
     """This is the route of the app"""
-    return render_template('2-index.html')
+    return render_template('3-index.html')
 
 
 if __name__ == '__main__':
